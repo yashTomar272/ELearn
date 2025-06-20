@@ -28,8 +28,8 @@ router.post('/create-checkout-session', async (req, res) => {
         },
         quantity: 1,
       }],
-      success_url: `https://e-learn-kat4.vercel.app/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `https://e-learn-kat4.vercel.app/courses`,
+      success_url: `https://e-learn-fe6e.vercel.app/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://e-learn-fe6e.vercel.app/courses`,
       metadata: {
         courseId: item._id,
         userId, // 👈 Stripe metadata me bhi bhejna zaruri hai
