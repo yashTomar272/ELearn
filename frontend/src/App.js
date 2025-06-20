@@ -10,6 +10,7 @@ import {
  import Register from './component/Register';
  import Login from './component/Login';
  import Hello from './component/Hello';
+ import Nopage from './component/Nopage';
 import TeacherRoutes from './TeacherRoutes';
 import { ToastContainer } from "react-toastify";
 import StudentRoutes from './StudentRoutes';
@@ -59,6 +60,7 @@ function App() {
       <Route path="/" element={<Hello/>}/>
       <Route path="/Register" element={<Register/>}/>
       <Route path="/Login" element={<Login/>}/>
+      <Route path="/*" element={<Nopage />} />
      <Route path="/teacher/*" element={<TeacherRoutes />} />
      <Route path="/admin/*" element={<AdminRoutes />} />
      <Route path="/stu/*" element={<StudentRoutes />} />
