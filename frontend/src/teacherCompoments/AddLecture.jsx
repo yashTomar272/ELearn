@@ -10,7 +10,7 @@ const AddLecture = () => {
   const [lessonName, setLessonName] = useState("");
   const [url, setUrl] = useState("");
   const [message, setMessage] = useState("");
-  const URL = "http://localhost:8000";
+  const URL = process.env.REACT_APP_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

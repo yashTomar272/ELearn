@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function Success() {
   
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
   
  const [searchParams] = useSearchParams();

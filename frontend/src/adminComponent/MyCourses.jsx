@@ -15,7 +15,7 @@ const MyCourses = () => {
 
   const [PaidCourse,setPaidData]=useState([]);
   const [FreeCourse,setFreeData]=useState([]);
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
 
   const headers = {

@@ -17,7 +17,7 @@ const CourseCard = ({item}) => {
   const navigate=useNavigate();
   const [Show,setShow]=useState();
   const [fav, setFav] = useState(false); 
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
  const stripePromise = loadStripe("pk_test_51Qf1VfRvKnbQ5boup1Z0bzdNFrFI5TA3pIpEPWszraHDPe6yGcFFQRLXL1ZbwSNTGn1C7xfwtmzYn86poVC5GEd800bwUaccBc");
   const [purchasedCourseIds, setPurchasedCourseIds] = useState([]);
 

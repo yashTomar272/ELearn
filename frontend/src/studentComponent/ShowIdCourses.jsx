@@ -14,7 +14,7 @@ const ShowIdCourses = () => {
   const [Showloader,setShowloader]=useState(true)
   const [Data,setData]=useState([]);
   
-    const URL = "http://localhost:8000";
+    const URL = process.env.REACT_APP_URL;
 
  useEffect(() => {
     const handlePaidCourse = async () => {

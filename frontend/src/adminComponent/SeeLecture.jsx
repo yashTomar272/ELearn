@@ -17,7 +17,7 @@ const SeeLecture = () => {
   const [lecture, setLecture] = useState([]);
  
   const [selectedUrl, setSelectedUrl] = useState("");
-  const URL = "http://localhost:8000";
+  const URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     const fetchlecture = async () => {

@@ -9,9 +9,11 @@ import { MdCurrencyRupee } from "react-icons/md";
 
 const CourseCard = ({item}) => {
   const navigate=useNavigate();
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
 
+
+ 
     const deleteProduct=async(idd)=>{
         const response=await axios.delete(`${URL}/delete-teacher-course`  , {
           headers: {

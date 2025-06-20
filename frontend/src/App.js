@@ -16,10 +16,39 @@ import StudentRoutes from './StudentRoutes';
 import AdminRoutes from './AdminRoutes';
  import Success from './component/Success';
  import Cancel from './component/Cancel';
-
+import React, { useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
- 
+import { useNavigate } from 'react-router-dom';
+
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const role  = localStorage.getItem('role');  // 'teacher' | 'student' | 'admin'
+
+    if (!token) {
+      // अगर लॉगिन नहीं है
+      return navigate('/login');
+    }
+
+    // लॉगिन है, अब role के हिसाब से redirect
+    switch (role) {
+      case 'teacher':
+        navigate('/teacher');
+        break;
+      case 'student':
+        navigate('/stu');
+        break;
+      case 'admin':
+        navigate('/admin');
+        break;
+      default:
+        // अगर role अनजान है
+        navigate('/');
+        break;
+    }
+  }, [navigate]);
   return (
     <>
      <ToastContainer position="top-right" autoClose={2000} />

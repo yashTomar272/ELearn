@@ -30,7 +30,7 @@ const NavTeacher = () => {
 const [profile,setProfile]=useState([]);
 
 
-const URL = "http://localhost:8000";
+const URL = process.env.REACT_APP_URL;
 
   const headers={
   id:localStorage.getItem("id"),

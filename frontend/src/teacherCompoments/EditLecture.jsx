@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const EditLecture = () => {
   const { courseId, lessonId } = useParams(); // 👈 make sure both params exist in the route
   const navigate = useNavigate();
-  const URL = "http://localhost:8000";
+  const URL = process.env.REACT_APP_URL;
 
   const [lecture, setLecture] = useState({ lessonName: "", url: "" });
 

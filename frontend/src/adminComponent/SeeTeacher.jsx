@@ -6,7 +6,7 @@ const SeeTeacher = () => {
    const [date,setDate]=useState([]);
 
 
-const URL = "http://localhost:8000";
+const URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     const fetchTeachers = async () => {

@@ -15,7 +15,7 @@ const MyCourses = () => {
   const [Showloader,setShowloader]=useState(true)
   const navigate=useNavigate();
   const [Data,setData]=useState([]);
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
 
   const headers = {

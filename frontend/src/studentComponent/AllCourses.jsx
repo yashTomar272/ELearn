@@ -9,7 +9,7 @@ const AllCourses = () => {
     const [Data,setData]=useState([]);
   const [Showloader,setShowloader]=useState(true)
 
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
   
   useEffect(() => {
   const fetchData = async () => {

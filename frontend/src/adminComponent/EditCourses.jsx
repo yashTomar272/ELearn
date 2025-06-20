@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const EditCourses = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const URL = "http://localhost:8000"; // 👈 change if needed
+  const URL = process.env.REACT_APP_URL; // 👈 change if needed
 
   const cathArr = [{ name: "english" }, { name: "hindi" }];
   const [formData, setFormData] = useState({

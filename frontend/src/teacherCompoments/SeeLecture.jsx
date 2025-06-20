@@ -12,7 +12,7 @@ const SeeLecture = () => {
   const [lecture, setLecture] = useState([]);
   const [selectedUrl, setSelectedUrl] = useState("");
   const [showLoader, setShowLoader] = useState(true);
-  const URL = "http://localhost:8000";
+  const URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     const fetchLecture = async () => {

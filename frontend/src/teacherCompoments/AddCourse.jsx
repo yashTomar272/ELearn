@@ -25,7 +25,7 @@ const [formData, setFormData] = useState({
   const [thumbnail, setThumbnail] = useState(null);
   const [message, setMessage] = useState("");
 
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
   // ✅ useEffect to set teachername
   useEffect(() => {

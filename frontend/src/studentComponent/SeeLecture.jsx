@@ -16,7 +16,7 @@ const SeeLecture = () => {
   const { id } = useParams(); // course ID
   const [lecture, setLecture] = useState([]);
  
-  const URL = "http://localhost:8000";
+  const URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     const fetchlecture = async () => {

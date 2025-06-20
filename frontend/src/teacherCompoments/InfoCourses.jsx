@@ -17,7 +17,7 @@ const InfoCourses = () => {
   const {id}=useParams();
   const [Data,setData]=useState([]);
  
- const URL = "http://localhost:8000";
+ const URL = process.env.REACT_APP_URL;
 
 
   const headers = {

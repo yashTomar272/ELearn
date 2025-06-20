@@ -9,7 +9,7 @@ import './Login.css';
 import { PiEyeLight, PiEyeSlash } from "react-icons/pi";
 const Register = () => {
 const navigate= useNavigate();
-
+const URL = process.env.REACT_APP_URL;
   const [role, setRole] = useState('student');
   const [Show, setShow] = useState(true);
   const handleShow = () => {
@@ -43,7 +43,7 @@ const submit = async () => {
         alert("All fields are required");
       } else {
         const response =await axios.post(
-          "http://localhost:8000/signup",
+          `${URL}/signup`,
           values
         )
         navigate('/Login')

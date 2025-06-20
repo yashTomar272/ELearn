@@ -4,7 +4,7 @@ import { useEffect,useState } from "react";
 
 const SeeTransaction = () => {
     const [Data,setData]=useState([]);
-   const URL = "http://localhost:8000";
+   const URL = process.env.REACT_APP_URL;
   console.log("helo",Data)
   
   const headers = {

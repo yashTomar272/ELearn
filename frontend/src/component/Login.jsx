@@ -20,7 +20,7 @@ const change = (e) => {
   const { name, value } = e.target;
   setValues({ ...values, [name]: value });
 }
-
+const URL = process.env.REACT_APP_URL;
 const [values,setValues]=useState({
     email:"",
     password:"",
@@ -34,7 +34,7 @@ const submit = async () => {
         alert("All fields are required");
       } else {
         const response =await axios.post(
-          "http://localhost:8000/signin",
+          `${URL}/signin`,
           values
         );
         dispatch(authActions.login());
@@ -43,7 +43,16 @@ localStorage.setItem("id",response.data.id)
 localStorage.setItem("token",response.data.token)
 localStorage.setItem("role",response.data.role)
 localStorage.setItem("fullname",response.data.fullname)
-        navigate('/teacher')
+       // 🎯 Object mapping for routes
+      const routeMap = {
+        teacher: '/teacher',
+        student: '/stu',    // जैसा तुम्हारे routes में defined है
+        admin:   '/admin'
+      };
+
+      // अगर response.data.role मिल गया तो वो URL, नहीं तो '/'
+      const destination = routeMap[response.data.role] || '/';
+      navigate(destination);
       }
     } catch (error) {
       alert(error.response.data.message)

@@ -6,7 +6,7 @@ const AllTransaction = () => {
       const [Data,setData]=useState([]);
     const [date,setDate]=useState([]);
 
-     const URL = "http://localhost:8000";
+     const URL = process.env.REACT_APP_URL;
      useEffect(()=>{
     const handlePaidCourse = async () => {
       const response = await axios.get(`${URL}/get-all-purchases`, {

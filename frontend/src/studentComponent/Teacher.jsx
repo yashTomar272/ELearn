@@ -12,7 +12,7 @@ const Teacher = () => {
     const [Showloader,setShowloader]=useState(true)
       const navigate=useNavigate()
       
-      const URL = "http://localhost:8000";
+      const URL = process.env.REACT_APP_URL;
       
         useEffect(() => {
           const fetchTeachers = async () => {
