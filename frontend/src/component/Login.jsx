@@ -25,6 +25,7 @@ const [values,setValues]=useState({
     email:"",
     password:"",
   })
+
 const submit = async () => {
     try {
       if (
@@ -151,13 +152,14 @@ localStorage.setItem("fullname",response.data.fullname)
               )}
               </div>
               
-              <a href="#" type="submit" onClick={submit}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Log In
-              </a>
+              <button type='submit' onClick={submit} className='login_btn'>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  Log In
+</button>
+
                <p className="" style={{color: "rgba(219, 204, 204, 0.8)"}}>
              Don't Have a account?{" "}
               <span

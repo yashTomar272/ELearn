@@ -71,7 +71,8 @@ For button box shadow: 0 0 5px #f403af,
     color: #6d6d69;
 }
 
-.loginBox a{
+.login_btn{
+    background: transparent;
     position: relative;
     color: #ccc9c9;
     display: inline-block;
@@ -85,7 +86,7 @@ For button box shadow: 0 0 5px #f403af,
     transition: .5s;
 }
 
-.loginBox a:hover{
+.login_btn:hover{
     color: #fff;
     background: #f403af;
     box-shadow:  0 0 5px #f403af,
@@ -94,13 +95,13 @@ For button box shadow: 0 0 5px #f403af,
                 0 0 100px #f403af;
 }
 
-.loginBox a span{
+.login_btn span{
     position: absolute;
     font-weight: 500;
     color: #e1c7e1;
 }
 
-.loginBox a span:nth-child(1){
+.login_btn span:nth-child(1){
     top: 0;
     left: -100%;
     height: 2px;
@@ -118,7 +119,7 @@ For button box shadow: 0 0 5px #f403af,
     }
 }
 
-.loginBox a span:nth-child(2){
+.login_btn span:nth-child(2){
     top: -100%;
     right:0 ;
     height: 100%;
@@ -137,7 +138,7 @@ For button box shadow: 0 0 5px #f403af,
     }
 }
 
-.loginBox a span:nth-child(3){
+.login_btn span:nth-child(3){
     right: -100%;
     bottom:0 ;
     height: 2px;
@@ -156,7 +157,7 @@ For button box shadow: 0 0 5px #f403af,
     }
 }
 
-.loginBox a span:nth-child(4){
+.login_btn span:nth-child(4){
     bottom: -100%;
     left:0 ;
     height: 100%;

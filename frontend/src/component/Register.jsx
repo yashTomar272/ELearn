@@ -194,7 +194,7 @@ const submit = async () => {
                   <label htmlFor="qualification">Qualification</label>
                 </div>
               )}
-              <a href="#" type="submit" onClick={submit}>
+              <button type="submit" onClick={submit} className='login_btn'>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -202,7 +202,7 @@ const submit = async () => {
 {/* <button style={{}} type="submit" onClick={submit}> */}
                 SignUp
                 {/* </button> */}
-              </a>
+              </button>
                <p className="" style={{color: "rgba(219, 204, 204, 0.8)"}}>
               Have a account?{" "}
               <span
