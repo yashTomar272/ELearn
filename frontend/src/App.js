@@ -18,37 +18,40 @@ import AdminRoutes from './AdminRoutes';
  import Cancel from './component/Cancel';
 import React, { useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
-  const navigate = useNavigate();
+  const navigate   = useNavigate();
+  const location   = useLocation();
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   const role  = localStorage.getItem('role');  // 'teacher' | 'student' | 'admin'
+  useEffect(() => {
+    const token      = localStorage.getItem('token');
+    const role       = localStorage.getItem('role');
+    const publicPaths = ['/login', '/register']; // जो routes public रखने हैं
 
-  //   if (!token) {
-  //     // अगर लॉगिन नहीं है
-  //     return navigate('/login');
-  //   }
+    // अगर अभी public route पर हो तो कुछ मत करो
+    if (publicPaths.includes(location.pathname)) {
+      return;
+    }
 
-  //   // लॉगिन है, अब role के हिसाब से redirect
-  //   switch (role) {
-  //     case 'teacher':
-  //       navigate('/teacher');
-  //       break;
-  //     case 'student':
-  //       navigate('/stu');
-  //       break;
-  //     case 'admin':
-  //       navigate('/admin');
-  //       break;
-  //     default:
-  //       // अगर role अनजान है
-  //       navigate('/');
-  //       break;
-  //   }
-  // }, [navigate]);
+    // अगर token नहीं है, सारे non-public पर login भेज दो
+    if (!token) {
+      return navigate('/login');
+    }
+
+    // अगर token है, role के हिसाब से redirect करो
+    const routeMap = {
+      teacher: '/teacher',
+      student: '/stu',
+      admin:   '/admin',
+    };
+
+    const destination = routeMap[role] || '/';
+    // सिर्फ तभी navigate करो जब current path destination से अलग हो
+    if (location.pathname !== destination) {
+      navigate(destination);
+    }
+  }, [navigate, location]);
   return (
     <>
      <ToastContainer position="top-right" autoClose={2000} />

@@ -12,7 +12,6 @@ router.post("/add-course", authenticatetoken, upload.single("thumbnail"), async 
     const { id } = req.headers;
 
     if (!id) return res.status(400).json({ message: "User ID is missing in headers" });
-
     const user = await User.findById(id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
@@ -100,7 +99,6 @@ router.put("/update-course", authenticatetoken, upload.single("thumbnail"), asyn
 
     return res.status(200).json({ message: "Course update successful!" });
   } catch (err) {
-    console.log("err", err);
     res.status(500).json({ message: "An error occurred" });
   }
 });
@@ -112,7 +110,6 @@ router.post("/courses-lecture/:id", async (req, res) => {
 
   try {
     const course = await Courses.findById(id);
-    console.log("f",course)
     if (!course) {
       return res.status(404).json({ message: "Course not found" });
     }
@@ -220,7 +217,6 @@ router.delete("/delete-course", authenticatetoken, async (req, res) => {
 
     return res.status(200).json({ message: "Course deleted successfully!" });
   } catch (err) {
-    console.log("err", err);
     res.status(500).json({ message: "An error occurred" });
   }
 });
@@ -248,7 +244,6 @@ router.delete("/delete-teacher-course", authenticatetoken, async (req, res) => {
 
     return res.status(200).json({ message: "Course deleted successfully!" });
   } catch (err) {
-    console.log("err", err);
     res.status(500).json({ message: "An error occurred" });
   }
 });
@@ -264,7 +259,6 @@ router.get("/get-all-course",async(req,res)=>{
             data:course,
         })
     }catch(err){
-        console.log("err",err)
       res.status(500).json({ message: "An error occurred" });
     }
 })
@@ -279,7 +273,6 @@ router.get("/get-recent-course",async(req,res)=>{
             data:course,
         })
     }catch(err){
-        console.log("err",err)
       res.status(500).json({ message: "An error occurred" });
     }
 })
@@ -320,7 +313,6 @@ router.get("/get-course-by-teachername/:teachername", async (req, res) => {
             data: course,
         });
     } catch (err) {
-        console.log("err", err);
         res.status(500).json({ message: "An error occurred" });
     }
 });
@@ -337,7 +329,6 @@ router.get("/get-paid-course", async (req, res) => {
             data: course,
         });
     } catch (err) {
-        console.log("err", err);
         res.status(500).json({ message: "An error occurred" });
     }
 });
@@ -354,7 +345,6 @@ router.get("/get-free-course", async (req, res) => {
             data: course,
         });
     } catch (err) {
-        console.log("err", err);
         res.status(500).json({ message: "An error occurred" });
     }
 });
@@ -380,7 +370,6 @@ router.get("/search-course", authenticatetoken, async (req, res) => {
 
     res.status(200).json({ data: filteredCourses });
   } catch (err) {
-    console.log("Search error:", err);
     res.status(500).json({ message: "Internal server error" });
   }
 });
@@ -406,7 +395,6 @@ router.get("/search-all-course", authenticatetoken, async (req, res) => {
 
     res.status(200).json({ data: filteredCourses });
   } catch (err) {
-    console.log("Search error:", err);
     res.status(500).json({ message: "Internal server error" });
   }
 });
