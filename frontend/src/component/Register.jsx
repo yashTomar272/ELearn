@@ -31,7 +31,8 @@ useEffect(()=>{
   const {name,value}=e.target;
   setValues({...values,[name]:value})
 }
-const submit = async () => {
+const submit = async (e) => {
+   e.preventDefault();  // ⬅️ Yeh line add karo
     try {
       if (
         !values.fullname || 

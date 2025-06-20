@@ -26,7 +26,8 @@ const [values,setValues]=useState({
     password:"",
   })
 
-const submit = async () => {
+const submit = async (e) => {
+   e.preventDefault();  // ⬅️ Yeh line add karo
     try {
       if (
         !values.email || 
