@@ -23,32 +23,32 @@ import { useNavigate } from 'react-router-dom';
 function App() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const role  = localStorage.getItem('role');  // 'teacher' | 'student' | 'admin'
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   const role  = localStorage.getItem('role');  // 'teacher' | 'student' | 'admin'
 
-    if (!token) {
-      // अगर लॉगिन नहीं है
-      return navigate('/login');
-    }
+  //   if (!token) {
+  //     // अगर लॉगिन नहीं है
+  //     return navigate('/login');
+  //   }
 
-    // लॉगिन है, अब role के हिसाब से redirect
-    switch (role) {
-      case 'teacher':
-        navigate('/teacher');
-        break;
-      case 'student':
-        navigate('/stu');
-        break;
-      case 'admin':
-        navigate('/admin');
-        break;
-      default:
-        // अगर role अनजान है
-        navigate('/');
-        break;
-    }
-  }, [navigate]);
+  //   // लॉगिन है, अब role के हिसाब से redirect
+  //   switch (role) {
+  //     case 'teacher':
+  //       navigate('/teacher');
+  //       break;
+  //     case 'student':
+  //       navigate('/stu');
+  //       break;
+  //     case 'admin':
+  //       navigate('/admin');
+  //       break;
+  //     default:
+  //       // अगर role अनजान है
+  //       navigate('/');
+  //       break;
+  //   }
+  // }, [navigate]);
   return (
     <>
      <ToastContainer position="top-right" autoClose={2000} />
