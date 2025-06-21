@@ -55,13 +55,12 @@ const ShowIdCourses = () => {
                {   Data.map((item, i) => <CourseCard item={item} key={i} />
                  )
                   }
-                   {( Data.length === 0)
-                            && (
-                            <div className="text-center">
-                              <img src={second} alt="no data" style={{ width: "170px", height: "80px" }} />
-                              <p>No courses found</p>
-                            </div>
-                          )}
+                   {!Showloader && Data.length === 0 && (
+  <div className="text-center">
+    <img src={second} alt="no data" style={{ width: "170px", height: "80px" }} />
+    <p>No courses found</p>
+  </div>
+)}
               </div>
     </div>
     </>
