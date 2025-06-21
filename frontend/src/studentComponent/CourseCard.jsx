@@ -140,8 +140,12 @@ useEffect(() => {
   )
 )}
 
-    
-           {item.type==="paid" && <BiSolidLock className='edit_Course_icon' />}
+   {purchasedCourseIds.includes(item._id) ? (
+  <BiSolidLockOpen className='edit_Course_icon' />
+) : item.type === "paid" ? (
+  <BiSolidLock className='edit_Course_icon' />
+) : null}
+
    <img src={item.thumbnail} alt='Courses_img' style={{height:"150px",width:"100%",borderRadius:"9px 9px 0 "}}/>
    <div style={{width:"100%"}} className=' p-2 d-flex flex-column gap-2'>
    <div className='d-flex gap-3'>

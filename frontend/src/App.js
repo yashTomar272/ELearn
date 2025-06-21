@@ -25,34 +25,35 @@ function App() {
   const navigate   = useNavigate();
   const location   = useLocation();
 
-  useEffect(() => {
-    const token      = localStorage.getItem('token');
-    const role       = localStorage.getItem('role');
-    const publicPaths = ['/login', '/register']; // जो routes public रखने हैं
+ useEffect(() => {
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
 
-    // अगर अभी public route पर हो तो कुछ मत करो
-    if (publicPaths.includes(location.pathname)) {
-      return;
-    }
+  // ✅ Add success and cancel to publicPaths
+  const publicPaths = ['/login', '/register', '/success', '/cancel'];
 
-    // अगर token नहीं है, सारे non-public पर login भेज दो
-    if (!token) {
-      return navigate('/login');
-    }
+  if (publicPaths.includes(location.pathname)) {
+    return;
+  }
 
-    // अगर token है, role के हिसाब से redirect करो
-    const routeMap = {
-      teacher: '/teacher',
-      student: '/stu',
-      admin:   '/admin',
-    };
+  if (!token) {
+    return navigate('/login');
+  }
 
-    const destination = routeMap[role] || '/';
-    // सिर्फ तभी navigate करो जब current path destination से अलग हो
-    if (location.pathname !== destination) {
-      navigate(destination);
-    }
-  }, [navigate, location]);
+  const routeMap = {
+    teacher: '/teacher',
+    student: '/stu',
+    admin: '/admin',
+  };
+
+  const destination = routeMap[role] || '/';
+
+  if (!location.pathname.startsWith(destination)) {
+    navigate(destination);
+  }
+}, [navigate, location]);
+
+
   return (
     <>
      <ToastContainer position="top-right" autoClose={2000} />

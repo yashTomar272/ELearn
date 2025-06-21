@@ -64,7 +64,13 @@ navigate("/login")
     <span style={{fontSize:"25px",fontWeight:"600",color:"black"}}>{profile.fullname}</span>
     <span style={{fontSize:"20px",fontWeight:"500",color:"black"}}>Registered in at: {date}</span>
     <span style={{fontSize:"20px",fontWeight:"500",color:"black"}}>Your email: {profile.email}</span>
-    <span style={{fontSize:"20px",fontWeight:"500",color:"black"}}>Your qualification: {profile.qualification}</span>
+    {
+  [ "teacher"].includes(profile.role) && (
+    <span style={{ fontSize: "20px", fontWeight: "500", color: "black" }}>
+      Your qualification: {profile.qualification}
+    </span>
+  )
+}
     <span style={{fontSize:"20px",fontWeight:"500",color:"black"}}>{profile.role}</span>
 
   </div>
