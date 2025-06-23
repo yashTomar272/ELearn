@@ -30,7 +30,10 @@ const CourseCard = ({item}) => {
         
        }
     
-       
+       const capitalizeFirstLetter = (string) => {
+  if (!string) return "";
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
   return (
    <>
    <div  style={{maxWidth:"290px",minWidth:"280px",boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",borderRadius:"9px"}} className=' d-flex flex-column p-0 position-relative '>
@@ -39,14 +42,14 @@ const CourseCard = ({item}) => {
    <img src={item.thumbnail} alt='Courses_img' style={{height:"150px",width:"100%",borderRadius:"9px 9px 0 "}}/>
    <div style={{width:"100%"}} className=' p-2 d-flex flex-column gap-2'>
    <div className='d-flex gap-3'>
-     <span style={{color:"black",fontSize:"13px",fontWeight:"400"}}>{item.language}</span>
-     <span style={{color:"blue",fontSize:"13px",fontWeight:"600"}}>{item.subject}</span>
+     <span style={{color:"black",fontSize:"13px",fontWeight:"400"}}>{capitalizeFirstLetter(item.language)}</span>
+     <span style={{color:"blue",fontSize:"13px",fontWeight:"600"}}>{capitalizeFirstLetter(item.subject)}</span>
    </div>
-   <span style={{color:"black",fontSize:"16px",fontWeight:"600"}}>{item.title}</span>
-   <span style={{color:"rgb(179, 174, 174)",fontSize:"12px",fontWeight:"600"}}>valid:{item.valid} . {item.lecture}</span>
+   <span style={{color:"black",fontSize:"16px",fontWeight:"600"}}>{capitalizeFirstLetter(item.title)}</span>
+   <span style={{color:"rgb(179, 174, 174)",fontSize:"12px",fontWeight:"600"}}>Valid:{item.valid} . {item.lecture}</span>
    <div className='d-flex flex-row justify-content-between align-items-center'>
    <div className="d-flex">
-     <span style={{color:"black",fontSize:"14px",fontWeight:"600"}}>{item.type}</span>
+     <span style={{color:"black",fontSize:"14px",fontWeight:"600"}}>{capitalizeFirstLetter(item.type)}</span>
       {item.type==="paid" &&
   <div>
     <span style={{color:"black",fontSize:"14px",fontWeight:"600"}}>:</span>

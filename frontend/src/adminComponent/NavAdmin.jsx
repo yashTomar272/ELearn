@@ -16,7 +16,12 @@ const NavAdmin = () => {
      const [Show, setShow] = useState(true);
       const [search, setSearch] = useState("");  // Search term ko track karne ke liye
   const [searchResults, setSearchResults] = useState([]);  // Products ko store karne ke liye
+ const [Showw, setShoww] = useState(false);
+  
 
+const handleShoww= () => {
+        setShoww(!Showw);
+      };
       const handleShow = () => {
         setShow(!Show);
       };
@@ -105,23 +110,31 @@ useEffect(() => {
     <div className='top_div w-100   d-flex align-items-center justify-content-between px-4 ' style={{height:"60px"}}>
         {/* search code */}
         <div style={{height:"40px",width:"322px"}}>
-    <div className='ms-4 search_div d-flex align-items-center justify-content-between position-relative h-100 -w-100'  >
-        <input  value={search}  onChange={handleSearchChange} className="d-none  d-md-flex" type='text' placeholder='Search here' style={{flexGrow:"1",height:"40px",outline:"none",border:"none",padding:"0 5px 0 10px",borderTopLeftRadius:"7px", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",}}/>
-        <div className='DALJU  cr' style={{background:"rgba(54, 35, 221, 0.6)",height:"40px",aspectRatio:"1",borderBottomRightRadius:"7px", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"}}>
-    <CiSearch/>
+     <div className='ms-4 search_div d-flex align-items-center  position-relative h-100'  >
+        <input  value={search}  onChange={handleSearchChange} className="d-none  d-md-flex" type='text' placeholder='Search here' 
+        style={{width:"250px",lexGrow:"1",height:"40px",outline:"none",border:"none",padding:"0 5px 0 10px", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",}}/>
+        <div  className='d-none d-md-flex align-items-center justify-content-center  cr' style={{background:"rgba(54, 35, 221, 0.6)",height:"40px",aspectRatio:"1", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"}}>
+    <CiSearch />
         </div>
+        <div onClick={handleShoww} className='d-flex d-md-none align-items-center justify-content-center  cr' style={{background:"rgba(54, 35, 221, 0.6)",height:"40px",aspectRatio:"1", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"}}>
+    <CiSearch />
+        </div>
+        {Showw &&
+        <input  value={search}  onChange={handleSearchChange} className="d-flex d-md-none" type='text' placeholder='Search here' 
+        style={{width:"200px",height:"40px",outline:"none",border:"none",padding:"0 5px 0 10px", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",}}/>}
+
         {search && (
-         <div className="p-2 bg-white d-flex flex-column  gap-3" style={{boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",height:"300px",width:"300px",borderRadius:"0px 0px 10px 10px",position:"absolute",top:"50px",zIndex:"5",  overflowY: "auto" }} >
+         <div className="p-2 bg-white d-flex flex-column  gap-3" style={{boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",height:"300px",width:"100%",borderRadius:"0px 0px 10px 10px",position:"absolute",top:"50px",zIndex:"5",  overflowY: "auto" }} >
   {searchResults.length > 0 ? (
                       <>
                         {searchResults.map((val, id) =>(
                          
   <div key={id} style={{width:"100%",height:"40px"}} className="d-flex align-items-center gap-2 mini_show cr" onClick={()=>{
-    navigate(`/admin/InfoCourses/${val._id}`);
+    navigate(`/stu/InfoCourses/${val._id}`);
     setSearch()
   }}>
   <img src={val.thumbnail} style={{height:"40px",aspectRatio:"1"}}/>
-<div className="m-0 p-0 d-flex flex-column">
+<div className="m-0 p-0">
     <span
     className="m-0 p-0 "
 style={{fontSize: "16px",fontWeight: "500",color: "rgba(58, 54, 54, 0.8)"}}>
@@ -152,7 +165,9 @@ style={{fontSize: "16px",fontWeight: "500",color: "rgba(58, 54, 54, 0.8)"}}>
     </div>
     {/* profile logo code */}
     <div className='profile_logo  DALJU gap-3 position-relative' style={{height:"42px",borderRadius:"18px",padding:"0 7px", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"}}>
-    <div><FaRegBell className='fs-4 cr'/></div>
+   {!Showw &&
+         <div><FaRegBell className='fs-4 cr '/></div>
+        }
     <div className='profile_photo_div d-flex gap-2 align-items-center'>
         <img src={photo} alt='profile_photo' className='cr' style={{height:"30px",aspectRatio:"1",borderRadius:"50%"}}/>
         <div className='d-none d-md-flex flex-column'>
@@ -161,7 +176,13 @@ style={{fontSize: "16px",fontWeight: "500",color: "rgba(58, 54, 54, 0.8)"}}>
         </div>
     </div>
     <div>
-        {Show ?(<TiArrowSortedDown className='cr CL fs-3' onClick={handleShow}/>):(<TiArrowSortedUp className='cr CL fs-3' onClick={handleShow}/>)}
+     {!Showw && (
+     Show ? (
+       <TiArrowSortedDown className='cr CL fs-3' onClick={handleShow} />
+     ) : (
+       <TiArrowSortedUp className='cr CL fs-3' onClick={handleShow} />
+     )
+   )}
     </div>
    {!Show &&
 (

@@ -166,6 +166,7 @@ style={{fontSize: "16px",fontWeight: "500",color: "rgba(58, 54, 54, 0.8)"}}>
    {!Showw &&
     <div><FaRegBell className='fs-4 cr '/></div>
    }
+   
     <div className='profile_photo_div d-flex gap-1 gap-md-2 align-items-center'>
         <img src={photo} alt='profile_photo' onClick={()=>navigate("/stu/ProfileSetting")} className='cr' style={{height:"30px",aspectRatio:"1",borderRadius:"50%"}}/>
         <div className='d-none d-md-flex flex-column'>
