@@ -19,10 +19,11 @@ const handlePaidCourse = async () => {
   setShowloader(false);
 };
 handlePaidCourse();
- },[Data])
+ },[URL])
   
  
 
+ 
 
 
 
@@ -43,6 +44,7 @@ handlePaidCourse();
     <p>No courses found</p>
   </div>
 )}
+
               </div>
     </div>
     </>

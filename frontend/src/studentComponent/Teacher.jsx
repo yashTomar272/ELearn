@@ -20,15 +20,19 @@ const Teacher = () => {
               const response = await axios.get(`${URL}/get-all-teachers-with-course-count`);
               const data = response.data.data;
       
-             
+             const randomTeachers = data
+          .sort(() => 0.5 - Math.random()) // shuffle array
+          .slice(0, 4);                    // pick first 4
+
       
-              setData(data);
+              setData(randomTeachers);
         setShowloader(false)
   
             } catch (err) {
             }
           };
       
+          
           fetchTeachers();
         }, []);
   return (
